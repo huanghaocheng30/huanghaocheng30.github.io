@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <title>Document</title>
+</head>
+<body>
+  <header>
+      <!-- 添加声音控制按钮 -->
+  <button class="sound-control">
+    <i class="fas fa-volume-mute"></i>
+  </button>
+    <a href="#" class="brand">智汇古今</a>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="#">文史长河</a>
+        <a href="#">典藏精粹</a>
+        <a href="#">朝代图鉴</a>
+        <a href="#">古籍今读</a>
+        <a href="login.html" class="login-link">登入</a>
+        <a href="register.html" class="register-link">入册</a>
+      </div>
+    </div>
+  </header>
+  <section class="home">
+    <audio id="bgm" loop>
+      <source src="bgm.mp3" type="audio/mpeg">
+      您的浏览器不支持音频播放
+    </audio>
+    
+    <video  class="video-slide active" src="home.mp4" autoplay muted loop></video>
+    <video  class="video-slide" src="home2.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="home3.mp4" autoplay muted loop></video> <!-- 新增第三个视频 -->
+
+    <div class="content active">
+        <h1>文化聚云端<br><span>历史共传承</span></h1>
+        <p>线上社区板块突破地域限制，打造全国首个历史爱好者垂直交流平台。用户可按地域标签参与讨论，<br>分享珍贵古籍、古建影像与地方文化故事。通过主题推荐，构建跨时空对话场景。平台独创"历史拼<br>图"互动机制，用户上传的图文资料将自动生成数字文化地图，助力碎片化知识系统化呈现。</p>
+        <a href="community1.html">  立 即 加 入</a>
+    </div>
+
+    <div class="content">
+      <h1>身临千年境<br><span>触指阅春秋</span></h1>
+      <p>沉浸体验板块首创“时空双线”交互模式，线上通过H5动态长卷滑动漫游五千年文明脉络，结合<br>角色扮演游戏让用户化身历史人物改写关键抉择；线下以“剧本杀+AR寻迹”重构文化传播场景， <br>用户扫描实体场景二维码即可触发多线叙事，通过自主选择解锁不同历史支线，<br>形成“决策树式”打卡体验。</p>
+      <a href="#">  开 始 体 验</a>
+    </div>
+
+    <div class="media-icons">
+      <a href="#"><i class="fab fa-qq"></i></a>
+      <a href="#"><i class="fab fa-weixin"></i></a>
+      <a href="#"><i class="fab fa-weibo"></i></a>
+    </div>
+    
+    <div class="content">
+      <h1>古建跃指尖<br><span>复刻千年迹</span></h1>
+      <p>基于AI智能建模技术，用户输入历史建筑关键词即可自动生成高精度3D数字模型。系统深度融合<br>文物建筑数据，支持在线预览细节与自由调整比例，一键连通专业3D打印服务，将文化遗产从抽<br>象史料转化为可触碰的实体。</p>
+      <a href="#">  艺术创作</a>
+    </div>
+
+    <div class="slider-navigation">
+      <div class="nav-btn active"></div>
+      <div class="nav-btn"></div>  
+      <div class="nav-btn"></div>  
+    </div>
+  </section>   
+  <script src="script.js"></script>
+</body>
+
+
+</html>

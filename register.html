@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册 - 智汇古今</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 注册页面专用样式 */
+        .register-container {
+            max-width: 400px;
+            margin: 5% auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background: #00a1d6;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .third-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .third-icon {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .agreement {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2 style="text-align: center; color: #333">用户注册</h2>
+        
+        <form id="registerForm">
+            <!-- 原有表单字段 -->
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" placeholder="请输入用户名" required>
+            </div>
+            <div class="form-group">
+                <label>手机号</label>
+                <input type="text" placeholder="请输入手机号" required>
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input type="password" placeholder="请输入密码" required>
+            </div>
+            <div class="form-group">
+                <label>确认密码</label>
+                <input type="password" placeholder="请确认密码" required>
+            </div>
+            <button type="submit" class="submit-btn">立即注册</button>
+        </form>
+
+        <div class="third-login">
+            <!-- 原有第三方登录图标 -->
+        </div>
+
+        <div class="agreement">
+            <small>点击注册即表示同意《用户协议》和《隐私政策》</small>
+        </div>
+    </div>
+
+    <!-- 统一的脚本逻辑 -->
+    <script>
+        // 移除重复的监听器，只保留一个处理函数
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // 阻止默认提交
+            
+            // 获取表单数据
+            const username = this.querySelector('input[type=text]').value;
+            const phone = this.querySelector('input[type=text]:nth-child(2)').value;
+            const password = this.querySelector('input[type=password]').value;
+            const confirmPassword = this.querySelectorAll('input[type=password]')[1].value;
+
+            // 基础验证
+            if (!username || !phone || !password || !confirmPassword) {
+                alert('请完善所有信息');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('两次输入的密码不一致');
+                return;
+            }
+
+            // 模拟成功跳转（实际开发中应替换为真实验证）
+            window.location.href = 'register_success.html';
+        });
+    </script>
+</body>
+</html>

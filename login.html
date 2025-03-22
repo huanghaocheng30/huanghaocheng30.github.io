@@ -1,0 +1,156 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 哔哩哔哩风格登录页面 */
+        .login-container {
+            max-width: 400px;
+            margin: 5% auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .login-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .tab-item {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab-active {
+            border-color: #00a1d6;
+            color: #00a1d6;
+        }
+
+        .qrcode-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .qrcode-box {
+            width: 180px;
+            height: 180px;
+            background: #f5f5f5;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .submit-btn {
+            background: #00a1d6;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .third-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .third-icon {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #666;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-tabs">
+            <div class="tab-item tab-active">扫码登录</div>
+            <div class="tab-item">密码登录</div>
+        </div>
+
+        <div class="qrcode-section">
+            <div class="qrcode-box"></div>
+            <p>请使用 <b>智汇古今APP</b> 扫码登录</p>
+        </div>
+
+        <div class="password-login" style="display: none;">
+            <!-- 注意这里添加了id属性 -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>账号</label>
+                    <input type="text" placeholder="请输入账号">
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <button type="submit" class="submit-btn">登录</button>
+            </form>
+
+            <div class="third-login">
+                <p>其他方式登录</p>
+                <i class="fab fa-weixin third-icon"></i>
+                <i class="fab fa-weibo third-icon"></i>
+                <i class="fab fa-qq third-icon"></i>
+            </div>
+        </div>
+
+        <div class="agreement">
+            <small>登录即代表同意《用户协议》和《隐私政策》</small>
+        </div>
+    </div>
+
+    <script>
+        // 1. 切换登录方式
+        document.querySelectorAll('.tab-item').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('tab-active'));
+                tab.classList.add('tab-active');
+                
+                if(tab.textContent.includes('密码')) {
+                    document.querySelector('.qrcode-section').style.display = 'none';
+                    document.querySelector('.password-login').style.display = 'block';
+                } else {
+                    document.querySelector('.qrcode-section').style.display = 'block';
+                    document.querySelector('.password-login').style.display = 'none';
+                }
+            });
+        });
+
+        // 2. 添加表单提交处理（关键新增部分）
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // 阻止默认提交行为
+
+            // 简单验证示例
+            const username = this.querySelector('input[type=text]').value;
+            const password = this.querySelector('input[type=password]').value;
+
+            if(username && password) {
+                // 模拟成功跳转（替换为您的实际验证逻辑）
+                window.location.href = 'success.html';
+            } else {
+                alert('请输入账号密码');
+            }
+        });
+    </script>
+</body>
+</html>
